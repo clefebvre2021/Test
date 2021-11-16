@@ -22,7 +22,7 @@ def main():
 
     menu = ["Recommandation de film", "Les principaux indicateurs"]
 
-    choice = st.radio("Sélectionnez votre page :", menu)
+    choice = st.sidebar.radio("Sélectionnez votre page :", menu)
 
     #choice = st.sidebar.selectbox("Menu", menu) 
 
