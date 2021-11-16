@@ -20,7 +20,7 @@ st.set_page_config( layout='wide')
 def main():
 
 
-    menu = ["Recommandation de film", "Les principaux indicateurs"]
+    menu = ["Présentation générale", "Les principaux indicateurs", "Recommandation de film"]
 
     choice = st.sidebar.radio("Sélectionnez votre page :", menu)
 
