@@ -19,8 +19,8 @@ st.set_page_config( layout='wide')
 
 def main():
 
-    #st.title("Movie recommandation project")
-    menu = ["Movie recommandation", "Meaningful KPI"]
+
+    menu = ["Movie recommandation", "Meaningful KPI", "Test Christophe"]
 
     choice = st.sidebar.selectbox("Menu", menu) 
 
@@ -28,32 +28,13 @@ def main():
     if choice == 'Movie recommandation':
         st.subheader("Movie recommandation")
 
-        # with st.expander("Title"):
-        #     mytext = st.text_area("Type Here")
-        #     st.write(mytext)
-        #     st.success("Hello")
 
-        #st.dataframe(df)
         movies_title_list = df["primaryTitle"].tolist()
 
         movie_choice = st.selectbox("Movie Title", movies_title_list)
-        # with st.expander('Movies DF'):
-        #     st.dataframe(df.head(10))
 
-            # Filter
-            # img_link = df[df["primaryTitle"] == movie_choice]["img_link"].values[0]
-            # title_link = df[df["primaryTitle"] == movie_choice]["primaryTitle"].values
-            # genre = df[df["primaryTitle"] == movie_choice]["Comedy"].values
         genre = df[df["primaryTitle"] == movie_choice]["primaryTitle"].tolist()
 
-        #Layout
-        # st.write(img_link)
-        # st.image(img_link)
-
-
-        # with c1:
-        #     with st.expander("primaryTitle"):
-        #         st.write(genre)
 
 
         user_choice = genre
@@ -154,33 +135,50 @@ def main():
 
 
         ######################
+        #fig = make_subplots(rows=2, cols=2)
+
+        #fig.add_trace(go.Line(x = film["startYear"], y=film["runtimeMinutes"]), row=1, col=1)
+
+        #fig.add_trace(go.Line(x = film["startYear"], y=film["runtimeMinutes"]), row=1, col=2)
+
+        #fig.add_trace(go.Line(x = film["startYear"], y=film["runtimeMinutes"]), row=2, col=1)
+
+        #fig.add_trace(go.Line(x = film["startYear"], y=film["runtimeMinutes"]), row=2, col=2)
+
+        #fig.update_xaxes(title_text="", row=1, col=1)
+        #fig.update_yaxes(title_text="", row=1, col=1)
+
+        #fig.update_xaxes(title_text="", row=1, col=2)
+        #fig.update_yaxes(title_text="", row=1, col=2, range=[80, 100])
+
+        #fig.update_xaxes(title_text="", row=1, col=1)
+        #fig.update_yaxes(title_text="", row=2, col=1, range=[50, 100])
+
+        #fig.update_xaxes(title_text="", row=1, col=2)
+        #fig.update_yaxes(title_text="", row=2, col=2, range=[0, 100])
+
+        #fig.update_layout(height=1000, width=1400, title_text="Evolution de la durée des films en minutes depuis 1960", title_x=0.5, showlegend=False, template='plotly_dark', autosize=False)
+
         fig = make_subplots(rows=2, cols=2)
 
-        fig.add_trace(go.Line(x = film["startYear"], y=film["runtimeMinutes"]),
-                    row=1, col=1)
+        fig.add_trace(go.Scatter(x = film["startYear"], y=film["runtimeMinutes"]), row=1, col=1)
 
-        fig.add_trace(go.Line(x = film["startYear"], y=film["runtimeMinutes"]),
-                    row=1, col=2)
+        fig.add_trace(go.Scatter(x = film["startYear"], y=film["runtimeMinutes"]), row=1, col=2)
 
-        fig.add_trace(go.Line(x = film["startYear"], y=film["runtimeMinutes"]),
-                    row=2, col=1)
+        fig.add_trace(go.Scatter(x = film["startYear"], y=film["runtimeMinutes"]), row=2, col=1)
 
-        fig.add_trace(go.Line(x = film["startYear"], y=film["runtimeMinutes"]),
-                    row=2, col=2)
+        fig.add_trace(go.Scatter(x = film["startYear"], y=film["runtimeMinutes"]), row=2, col=2)
 
-        fig.update_xaxes(title_text="", row=1, col=1)
-        fig.update_yaxes(title_text="", row=1, col=1)
 
-        fig.update_xaxes(title_text="", row=1, col=2)
         fig.update_yaxes(title_text="", row=1, col=2, range=[80, 100])
 
-        fig.update_xaxes(title_text="", row=1, col=1)
         fig.update_yaxes(title_text="", row=2, col=1, range=[50, 100])
 
-        fig.update_xaxes(title_text="", row=1, col=2)
         fig.update_yaxes(title_text="", row=2, col=2, range=[0, 100])
 
         fig.update_layout(height=1000, width=1400, title_text="Evolution de la durée des films en minutes depuis 1960", title_x=0.5, showlegend=False, template='plotly_dark', autosize=False)
+
+
 
         st.plotly_chart(fig)
         ######################
