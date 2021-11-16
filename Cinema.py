@@ -20,13 +20,15 @@ st.set_page_config( layout='wide')
 def main():
 
 
-    menu = ["Movie recommandation", "Meaningful KPI", "Test Christophe"]
+    menu = ["Recommandation de film", "Les principaux indicateurs"]
 
-    choice = st.sidebar.selectbox("Menu", menu) 
+    choice = st.radio("Sélectionnez votre page :", menu)
+
+    #choice = st.sidebar.selectbox("Menu", menu) 
 
 
-    if choice == 'Movie recommandation':
-        st.subheader("Movie recommandation")
+    if choice == 'Recommandation de film':
+        st.subheader("Recommandation de film")
 
 
         movies_title_list = df["primaryTitle"].tolist()
@@ -73,7 +75,7 @@ def main():
 
 
 
-    elif choice == "Meaningful KPI":
+    elif choice == "Les principaux indicateurs":
         acteur_par_periode = pd.read_csv("https://raw.githubusercontent.com/BerengerQueune/ABC-Data/main/Berenger/Streamlit/acteur_par_periode.csv?token=AU6BUZWYJ6GYLJLQVDQCLZTBSZ2NK")
         link = 'https://raw.githubusercontent.com/BerengerQueune/ABC-Data/main/Berenger/Streamlit/top10.csv?token=AU6BUZSEQED65VJVLNSX4FLBS2IYO'
         top10 = pd.read_csv(link)
@@ -135,30 +137,7 @@ def main():
 
 
         ######################
-        #fig = make_subplots(rows=2, cols=2)
-
-        #fig.add_trace(go.Line(x = film["startYear"], y=film["runtimeMinutes"]), row=1, col=1)
-
-        #fig.add_trace(go.Line(x = film["startYear"], y=film["runtimeMinutes"]), row=1, col=2)
-
-        #fig.add_trace(go.Line(x = film["startYear"], y=film["runtimeMinutes"]), row=2, col=1)
-
-        #fig.add_trace(go.Line(x = film["startYear"], y=film["runtimeMinutes"]), row=2, col=2)
-
-        #fig.update_xaxes(title_text="", row=1, col=1)
-        #fig.update_yaxes(title_text="", row=1, col=1)
-
-        #fig.update_xaxes(title_text="", row=1, col=2)
-        #fig.update_yaxes(title_text="", row=1, col=2, range=[80, 100])
-
-        #fig.update_xaxes(title_text="", row=1, col=1)
-        #fig.update_yaxes(title_text="", row=2, col=1, range=[50, 100])
-
-        #fig.update_xaxes(title_text="", row=1, col=2)
-        #fig.update_yaxes(title_text="", row=2, col=2, range=[0, 100])
-
-        #fig.update_layout(height=1000, width=1400, title_text="Evolution de la durée des films en minutes depuis 1960", title_x=0.5, showlegend=False, template='plotly_dark', autosize=False)
-
+        
         fig = make_subplots(rows=2, cols=2)
 
         fig.add_trace(go.Scatter(x = film["startYear"], y=film["runtimeMinutes"]), row=1, col=1)
