@@ -105,8 +105,8 @@ def main():
 
 
         fig = px.bar(presence_acteur, x="primaryName", y ='index', color = 'index',
-            title = 'Quels sont les acteurs les plus présents ?',
-            #st.write("Ce graphique montre les 20 acteurs qui ont tournée le plus de film et de télé film depuis 19xx. A noter la présence d'un acteur français en 12ème position")
+            title = ('Quels sont les acteurs les plus présents ?',
+            
             labels = {'startYear': 'Période', 'primaryName': 'Acteurs'},
             orientation='h',
             animation_frame="startYear",
@@ -115,7 +115,7 @@ def main():
             width=800, height=500)
 
         fig.update_layout(showlegend=False, title_x=0.5, yaxis={'visible': True}, template='plotly_dark')
-
+        #st.write("Ce graphique montre les 20 acteurs qui ont tournée le plus de film et de télé film depuis 19xx. A noter la présence d'un acteur français en 12ème position")
         st.plotly_chart(fig)
 
         fig = px.bar(acteur_par_periode, x = 'count', y="rank", text ='primaryName', color = 'primaryName',
