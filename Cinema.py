@@ -102,20 +102,16 @@ def main():
         st.write("- Les acteurs de série sont-ils les mêmes qu’au cinéma ?")
         st.write("- Les acteurs ont en moyenne quel âge ?")
         st.write("- Quels sont les films les mieux notés ? Partagent-ils des caractéristiques communes ?")
-#ee
+
 
         fig = px.bar(presence_acteur, x="primaryName", y ='index', color = 'index',
-            title = ('Quels sont les acteurs les plus présents ?',
-            
-            labels = {'startYear': 'Période', 'primaryName': 'Acteurs'},
-            orientation='h',
-            animation_frame="startYear",
-            range_x=[0,150],
-            range_y=[0,6],
-            width=800, height=500)
+            title = 'Quels sont les acteurs les plus présents ?',
+            st.write("Cegraphique montre les 20 acteurs qui ont tournée le plus de film et de télé film depuis 19xx. A noter la présence d'un acteur français en 12ème position")
+            labels = {'primaryName': 'Nombre de films', 'index': 'Acteurs'},
+            width=800, height=600)
 
         fig.update_layout(showlegend=False, title_x=0.5, yaxis={'visible': True}, template='plotly_dark')
-        #st.write("Ce graphique montre les 20 acteurs qui ont tournée le plus de film et de télé film depuis 19xx. A noter la présence d'un acteur français en 12ème position")
+
         st.plotly_chart(fig)
 
         fig = px.bar(acteur_par_periode, x = 'count', y="rank", text ='primaryName', color = 'primaryName',
