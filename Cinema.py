@@ -37,7 +37,7 @@ def main():
 
         genre = df[df["primaryTitle"] == movie_choice]["primaryTitle"].tolist()
 
-
+#e
 
         user_choice = genre
 
