@@ -110,7 +110,7 @@ def main():
             width=800, height=600)
 
         fig.update_layout(showlegend=False, title_x=0.5, yaxis={'visible': True}, template='plotly_dark')
-
+        st.write(fig)
         st.plotly_chart(fig)
 
         fig = px.bar(acteur_par_periode, x = 'count', y="rank", text ='primaryName', color = 'primaryName',
