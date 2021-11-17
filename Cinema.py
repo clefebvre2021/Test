@@ -102,7 +102,7 @@ def main():
         st.write("- Les acteurs de série sont-ils les mêmes qu’au cinéma ?")
         st.write("- Les acteurs ont en moyenne quel âge ?")
         st.write("- Quels sont les films les mieux notés ? Partagent-ils des caractéristiques communes ?")
-
+#ee
 
         fig = px.bar(presence_acteur, x="primaryName", y ='index', color = 'index',
             title = ('Quels sont les acteurs les plus présents ?',
