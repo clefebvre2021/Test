@@ -96,8 +96,8 @@ def main():
         st.write("Un cinéma en perte de vitesse situé dans la Creuse vous contacte. Il a décidé de passer le cap du digital en créant un site Internet taillé pour les locaux.")
 
         st.write("Pour commencer, nous devons explorer la base de données afin de répondre aux questions suivantes :")
-        st.write("- Quels sont les acteurs les plus présents ? À quelle période ?")
         st.write("- Quels sont les pays qui produisent le plus de films ?")
+        st.write("- Quels sont les acteurs les plus présents ? À quelle période ?")
         st.write("- La durée moyenne des films s’allonge ou se raccourcit avec les années ?")
         st.write("- Les acteurs de série sont-ils les mêmes qu’au cinéma ?")
         st.write("- Les acteurs ont en moyenne quel âge ?")
@@ -106,7 +106,6 @@ def main():
 
         fig = px.bar(presence_acteur, x="primaryName", y ='index', color = 'index',
             title = 'Quels sont les acteurs les plus présents ?',
-            st.write("Cegraphique montre les 20 acteurs qui ont tournée le plus de film et de télé film depuis 19xx. A noter la présence d'un acteur français en 12ème position")
             labels = {'primaryName': 'Nombre de films', 'index': 'Acteurs'},
             width=800, height=600)
 
