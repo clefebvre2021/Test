@@ -106,9 +106,8 @@ def main():
 
         fig = px.bar(presence_acteur, x="primaryName", y ='index', color = 'index',
             title = 'Quels sont les acteurs les plus présents ?',
-            st.write("Cegraphique montre les 20 acteurs qui ont tournée le plus de film et de télé film depuis 19xx. A noter la présence d'un acteur français en 12ème position")
-            labels = {'primaryName': 'Nombre de films', 'index': 'Acteurs'},
-            width=800, height=600)
+            #st.write("Cegraphique montre les 20 acteurs qui ont tournée le plus de film et de télé film depuis 19xx. A noter la présence d'un acteur français en 12ème position")
+            labels = {'primaryName': 'Nombre de films', 'index': 'Acteurs'}, width=800, height=600)
 
         fig.update_layout(showlegend=False, title_x=0.5, yaxis={'visible': True}, template='plotly_dark')
 
